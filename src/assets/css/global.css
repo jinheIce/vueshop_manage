@@ -1,0 +1,17 @@
+html,
+body {
+    font-family: Arial;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin: 0px;
+    padding: 0px;
+    background-color: #EFEFEF;
+    height: 100%;
+}
+
+#app {
+    margin: 0px;
+    padding: 0px;
+    background-color: #EFEFEF;
+    height: 100%;
+}
