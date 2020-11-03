@@ -8,7 +8,8 @@
             <el-button type="info">信息按钮</el-button>
             <el-button type="warning">警告按钮</el-button>
             <el-button type="danger">危险按钮</el-button>
-        </el-row>        
+        </el-row>  
+        <el-button type="info" @click="loginOut">退出</el-button>      
     </div>
 </template>
 <script>
@@ -16,6 +17,12 @@ export default {
     data(){
         return{
             title:"主页"
+        }
+    },
+    methods:{
+        loginOut(){
+            window.sessionStorage.clear();
+            this.$router.push('/login');
         }
     }
 }

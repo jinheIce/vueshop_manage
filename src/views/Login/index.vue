@@ -53,9 +53,19 @@ export default {
                 params.append('username', this.loginForm.username);
                 params.append('password', this.loginForm.password);
 
-                const {data:res} = await this.$http.post("login",params);
-                console.log(res);
-                this.$message.success(res);
+                const data = await this.$http.post("login",params);
+                console.log(data.data);
+                if(data.data.meta.status != 200){
+                    this.$message.error(data.data.meta.msg);
+                }
+                else{
+                    this.$message.success("登录成功！");
+                    const token = data.data.data.token;
+                    //1、登录成功后的token 保存到客户端的sessionStorage中，
+                    // lockstorage 是持久化保存，sessionStorage是会话区间保存
+                    window.sessionStorage.setItem("token",token);
+                    this.$router.push('/home');
+                }            
              });
         }
     }
